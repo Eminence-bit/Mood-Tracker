@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen;
+  }
+}
+
+@layer components {
+  .mood-button {
+    @apply relative text-3xl sm:text-4xl p-3 sm:p-4 rounded-full 
+           transform transition-all duration-300 ease-in-out
+           hover:scale-110 active:scale-95 hover:shadow-lg 
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  }
+
+  .mood-tooltip {
+    @apply absolute left-1/2 -translate-x-1/2 -top-10 px-2 py-1 
+           bg-gray-800 text-white text-sm rounded-md opacity-0 
+           group-hover:opacity-100 transition-opacity duration-200 
+           whitespace-nowrap pointer-events-none;
+  }
+}
+
+/* Calendar Styles */
+.fc {
+  @apply font-sans;
+}
+
+.fc .fc-toolbar {
+  @apply mb-4;
+}
+
+.fc .fc-toolbar-title {
+  @apply text-gray-800 text-base sm:text-lg font-semibold;
+}
+
+.fc .fc-button-primary {
+  @apply bg-blue-500 border-blue-500 text-white px-3 py-1.5 rounded-md shadow-sm
+         hover:bg-blue-600 hover:border-blue-600 
+         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+         disabled:bg-blue-300 disabled:border-blue-300 disabled:cursor-not-allowed
+         transition-colors duration-200;
+}
+
+.fc .fc-today-button {
+  @apply bg-green-500 border-green-500
+         hover:bg-green-600 hover:border-green-600
+         focus:ring-green-500
+         disabled:bg-green-300 disabled:border-green-300;
+}
+
+/* Calendar Grid */
+.fc .fc-daygrid-day-frame {
+  @apply min-h-[100px] sm:min-h-[120px];
+}
+
+.fc .fc-timegrid-slot {
+  @apply h-[50px] sm:h-[60px] border-dashed;
+}
+
+.fc .fc-timegrid-axis-cushion {
+  @apply text-sm text-gray-600;
+}
+
+.fc .fc-timegrid-slot-label {
+  @apply text-sm text-gray-500;
+}
+
+/* Header Styles */
+.fc .fc-col-header-cell {
+  @apply bg-gray-50/80 backdrop-blur-sm border-b border-gray-200;
+}
+
+.fc .fc-col-header-cell-cushion {
+  @apply py-2 text-sm font-semibold text-gray-700;
+}
+
+/* Today Highlighting */
+.fc .fc-day-today {
+  @apply bg-blue-50/50 backdrop-blur-sm;
+}
+
+/* Event Styles */
+.fc-event {
+  @apply rounded-md border-0 shadow-sm cursor-pointer
+         transition-all duration-200 ease-in-out
+         hover:scale-105 hover:shadow-md z-10
+         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
+
+.fc-timegrid-event {
+  @apply !rounded-md !border-0 !shadow-sm;
+}
+
+/* Chart Styles */
+.chart-container {
+  @apply w-full h-[300px] sm:h-[400px] bg-white/80 backdrop-blur-sm 
+         rounded-lg shadow-md p-4 transition-all duration-300;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .fc .fc-toolbar-title {
+    @apply text-lg;
+  }
+  
+  .fc .fc-button {
+    @apply text-sm py-1 px-2;
+  }
+  
+  .fc-event-main {
+    @apply text-sm;
+  }
+
+  .fc .fc-toolbar {
+    @apply flex-col gap-2;
+  }
+
+  .fc .fc-toolbar-chunk {
+    @apply flex justify-center;
+  }
+}
